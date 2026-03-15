@@ -15,11 +15,8 @@ export const fetchHistoryPage = async (cursorUrl?: string | null): Promise<Histo
     const url = cursorUrl? `https://assignments.reaktor.com${cursorUrl}`: "https://assignments.reaktor.com/history";
 
     const response = await fetchWithToken(url);
-
-
     const json = await response.json() as HistoryResponse;
-    console.log("Fetched legacy games history:", json.data);
-    
+
     return {
         data: json.data,
         cursor: json.cursor || null

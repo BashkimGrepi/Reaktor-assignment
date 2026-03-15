@@ -2,18 +2,15 @@
  * Live SSE Stream Module
  *
  * Establishes a persistent Server-Sent Events connection to the legacy API's /live endpoint.
- * Receives real-time match updates and stores them in the database.
+ * Receives real-time match and broadcasts it to the connected client.
  */
 
 import { EventSource } from "eventsource";
 import { transformLegacyMatch } from "../transformers/matchTransformer.js";
-import { upsertMatch } from "../db/upsertHelpers.js";
-import { prisma } from "../lib/prisma.js";
 import { SyncSource } from "../../generated/prisma/enums.js";
-import { GameType, LegacyGame } from "../types/rps-dto.js";
+import { LegacyGame } from "../types/rps-dto.js";
 import { broadcast } from "../services/live.service.js";
 
-const SYNC_STATE_KEY = "main";
 const SSE_URL = process.env.SSE_URL ;
 const BEARER_TOKEN =  process.env.BEARER_TOKEN;
 
