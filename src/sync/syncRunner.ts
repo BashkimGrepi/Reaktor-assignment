@@ -26,7 +26,7 @@ import {
 } from "./reconciliationScheduler.js";
 import { prisma } from "../lib/prisma.js";
 
-const SYNC_STATE_KEY = "main"; 
+const SYNC_STATE_KEY = "main";
 
 let isSubsystemRunning = false;
 
@@ -45,7 +45,6 @@ async function ensureSyncState(): Promise<void> {
     },
   });
 }
-
 
 /**
  * Start all sync subsystem processes
@@ -85,9 +84,6 @@ export async function startSyncSubsystem(): Promise<void> {
     console.log("\n✅ ========================================");
     console.log("✅ SYNC SUBSYSTEM STARTED SUCCESSFULLY");
     console.log("✅ ========================================\n");
-
-    // Log initial status
-    await logSyncStatus();
   } catch (error) {
     console.error("\n❌ Failed to start sync subsystem:", error);
     // Attempt cleanup on failure
@@ -99,7 +95,7 @@ export async function startSyncSubsystem(): Promise<void> {
 /**
  * Stop all sync subsystem processes (graceful shutdown)
  */
- async function stopSyncSubsystem(): Promise<void> {
+async function stopSyncSubsystem(): Promise<void> {
   if (!isSubsystemRunning) {
     console.log("⚠️  Sync subsystem not running");
     return;
@@ -156,8 +152,8 @@ export async function getSyncSubsystemStatus(): Promise<{
     lastRun: Date | null;
   };
   //sseStream: {
-    //connected: boolean;
-    //readyState: number | null;
+  //connected: boolean;
+  //readyState: number | null;
   //};
   reconciliation: {
     isSchedulerActive: boolean;
@@ -198,30 +194,6 @@ export async function getSyncSubsystemStatus(): Promise<{
 }
 
 /**
- * Log current sync status (for debugging) will be deleted in final version
- */
-export async function logSyncStatus(): Promise<void> {
-  const status = await getSyncSubsystemStatus();
-
-  console.log("📊 Sync Subsystem Status:");
-  console.log(`   Subsystem Running: ${status.subsystemRunning ? "✅" : "❌"}`);
-  console.log(
-    `   Backfill Completed: ${status.backfill.completed ? "✅" : "⏳"}`,
-  );
-  //console.log(`   SSE Connected: ${status.sseStream.connected ? "✅" : "❌"}`);
-  console.log(
-    `   Reconciliation Active: ${status.reconciliation.isSchedulerActive ? "✅" : "❌"}`,
-  );
-  console.log(`   Total Matches: ${status.database.totalMatches}`);
-  if (status.database.latestKnownMatch.time) {
-    console.log(
-      `   Latest Match: ${status.database.latestKnownMatch.gameId} at ${status.database.latestKnownMatch.time.toISOString()}`,
-    );
-  }
-  console.log("");
-}
-
-/**
  * Setup graceful shutdown handlers for process termination
  */
 export function setupGracefulShutdown(): void {
@@ -255,6 +227,3 @@ export function setupGracefulShutdown(): void {
     await shutdown("unhandledRejection");
   });
 }
-
-
-

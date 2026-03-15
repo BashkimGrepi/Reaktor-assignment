@@ -9,7 +9,6 @@ export default defineConfig({
     path: "prisma/migrations",
   },
   datasource: {
-    url: "postgresql://postgres:SuperstarA223@localhost:5432/ReaktorRPS?schema=public",
-    //url: process.env["DATABASE_URL"],
+    url: process.env.DATABASE_URL,
   },
 });
