@@ -2,7 +2,7 @@
 
 ## Purpose
 
-**Reaktor** is a backend data pipeline that ingests competitive Rock Paper Scissors (RPS) match data, persists it, and serves it via both REST API and real-time streaming. Think of it as a sports league backend—similar to how ESPN manages game results and leaderboards.
+**RPS-assignment** is a backend data pipeline that ingests competitive Rock Paper Scissors (RPS) match data, persists it, and serves it via both REST API and real-time streaming. Think of it as a sports league backend—similar to how ESPN manages game results and leaderboards.
 
 ---
 
