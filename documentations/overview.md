@@ -81,6 +81,3 @@
 - **Solution:** Zod validation rejects malformed payloads; logs errors
 - **Trade-off:** Bad upstream data filtered out but lost; can't retroactively fix
 
----
-
-## **[Architecture Decision]**(/documentations/architecture.md)
