@@ -342,4 +342,4 @@ Reconciliation scheduler (runs every 3 minutes):
 
 ---
 
-Add components only when metrics show they're needed.
+This documentation has been enhanced with AI
