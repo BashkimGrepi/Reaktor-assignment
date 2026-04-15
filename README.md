@@ -11,13 +11,17 @@ This is a backend subsystem that was designed to:
 - Serve match data and leaderboards via REST API
 - Persist all data in PostgreSQL with Prisma ORM
 
-## ⚠️ Current Status: Endpoints Deactivated
+
+  "Note - this documents styling has been enhanced with AI"
+
+
+## !!!! Current Status: Endpoints Deactivated !!!!
 
 **Important:** The external legacy API endpoints are currently **not connected**:
 
-- ❌ **No history is being fetched** – The `/api/matches` endpoints return no data
-- ❌ **SSE stream is not open** – `/api/live` does not broadcast events
-- ❌ **No real-time updates** – Leaderboards are empty
+- **No history is being fetched** – The `/api/matches` endpoints return no data
+- **SSE stream is not open** – `/api/live` does not broadcast events
+- **No real-time updates** – Leaderboards are empty
 
 This project was built as a **sandbox/learning exercise** for backend architecture patterns. See [docs/legacy-api.md](docs/legacy-api.md) for challenges and design decisions.
 
@@ -135,4 +139,3 @@ It demonstrates practical backend engineering for streaming plus historical data
 
 
 
-"Note - this document has been enhanced with AI"
